@@ -5,16 +5,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-my_db = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="Admin@1",
-  database="mydatabase"
-)
-
-mycursor = my_db.cursor()
-mycursor.execute("CREATE TABLE IF NOT EXISTS todos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255))")
-
 @app.route('/')
 def home():
     sql = "SELECT id,name,dueDate,status FROM todos"
@@ -78,10 +68,4 @@ def update(id):
     return render_template('edit.html', user='', task=myresult)
 
 if __name__ == '__main__':
-    import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '5555'))
-    except ValueError:
-        PORT = 5555
-    app.run(HOST, PORT)
+    app.run()
