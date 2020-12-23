@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3 class="text-center">Editing a Todo task...</h3>
+<hr>
+<div class="container text-left">
+    <div class="inputbox-add-task" id="add-task">
+                <form method="POST" action="/update/{{task[0]}}">
+                    <div class="form-group">
+                        <input class="form-control item" name="name" required value="{{task[1]}}" }> <br />
+                        <input class="form-control item" name="duedate" required value="{{task[2] }}"> <br />
+                        <select class="form-control item" name="status" required>
+                            <option selected hidden>{{task[3]}}</option>
+                            <option value="Not Done">Not Done</option>
+                            <option value="Started">Started</option>
+                            <option value="Done">Done</option>
+                        </select>
+                        <button class="btn btn-primary" id="todo-submit" type="submit">Update Todo </button>
+                    </div>
+                </form>
+    </div>
+
+</div>
+
+{% endblock content %}
