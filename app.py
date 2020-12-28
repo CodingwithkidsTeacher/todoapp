@@ -24,6 +24,11 @@ def home():
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
 
+    if len(myresult) == 0:
+        list =""
+    else:
+        list=myresult
+
     return render_template("home.html", user='', list=list)
 
 @app.route("/add", methods=['POST', 'GET'])
