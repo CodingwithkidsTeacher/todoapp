@@ -20,7 +20,7 @@ mycursor.execute("CREATE TABLE IF NOT EXISTS mytodos (id INT AUTO_INCREMENT PRIM
 
 @app.route('/')
 def home():
-    sql = "SELECT id,name,dueDate,status FROM todos"
+    sql = "SELECT id,name,dueDate,status FROM mytodos"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
 
@@ -38,7 +38,7 @@ def add():
     dueDate = request.form.get('duedate')
     status = "Not Done"
     
-    sql = "INSERT INTO todos(name,dueDate,status) VALUES (%s, %s, %s)"
+    sql = "INSERT INTO mytodos(name,dueDate,status) VALUES (%s, %s, %s)"
     values =[name,dueDate,status]
     mycursor.execute(sql, values)
 
@@ -49,7 +49,7 @@ def add():
 @app.route('/delete/<int:id>')
 def delete(id):
     
-    sql = "DELETE FROM todos WHERE id= %s"
+    sql = "DELETE FROM mytodos WHERE id= %s"
     value = (id,)
 
     mycursor.execute(sql, value)
@@ -65,7 +65,7 @@ def update(id):
     dueDate = request.form.get('duedate')
     status = request.form.get('status')
     
-    sql = "UPDATE todos SET name= %s, dueDate= %s, status= %s WHERE id= %s"
+    sql = "UPDATE mytodos SET name= %s, dueDate= %s, status= %s WHERE id= %s"
     values = (name, dueDate, status, id)
     mycursor.execute(sql, values)
 
@@ -73,7 +73,7 @@ def update(id):
 
     return redirect("/")
   else:
-    sql = "SELECT id,name,dueDate,status FROM todos WHERE id= %s"
+    sql = "SELECT id,name,dueDate,status FROM mytodos WHERE id= %s"
     value = (id,)
     mycursor.execute(sql, value)
     myresult = mycursor.fetchone()
