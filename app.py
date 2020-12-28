@@ -11,7 +11,7 @@ my_db = mysql.connector.connect(
   host="us-cdbr-east-02.cleardb.com",
   user="bac77ed0b32182",
   password="952ad8c6",
-  database="heroku_8d9c14"
+  database="heroku_8d9c14a124021d1"
 )
 
 mycursor = my_db.cursor()
