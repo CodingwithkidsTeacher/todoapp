@@ -15,7 +15,7 @@ my_db = mysql.connector.connect(
 )
 
 mycursor = my_db.cursor()
-mycursor.execute("CREATE TABLE IF NOT EXISTS todos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255))")
+mycursor.execute("CREATE TABLE IF NOT EXISTS mytodos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255), status VARCHAR(255))")
 
 
 @app.route('/')
