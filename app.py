@@ -8,14 +8,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    """
     sql = "SELECT id,name,dueDate,status FROM todos"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
-
-    if len(myresult) == 0:
-        list =""
-    else:
-        list=myresult
+    """
+    myresult = "";
+    list = "";
 
     return render_template("home.html", user='', list=list)
 
