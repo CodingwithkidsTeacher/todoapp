@@ -2,19 +2,28 @@
 
 from flask import Flask, request, render_template, redirect
 import gunicorn
-#import mysql.connector
+
+import mysql.connector
 
 app = Flask(__name__)
 
+# Production Database connection
+my_db = mysql.connector.connect(
+  host="us-cdbr-east-02.cleardb.com",
+  user="bac77ed0b32182",
+  password="952ad8c6",
+  database="heroku_8d9c14"
+)
+
+mycursor = my_db.cursor()
+mycursor.execute("CREATE TABLE IF NOT EXISTS todos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255))")
+
+
 @app.route('/')
 def home():
-    """
     sql = "SELECT id,name,dueDate,status FROM todos"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
-    """
-    myresult = "";
-    list = "";
 
     return render_template("home.html", user='', list=list)
 
