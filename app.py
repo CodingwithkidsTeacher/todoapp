@@ -11,7 +11,8 @@ my_db = mysql.connector.connect(
   host="containers-us-west-73.railway.app",
   user="root",
   password="TwZIkrviFo7Jvajm1eIh",
-  database="railway"
+  database="railway",
+  port="6353"
 )
 mycursor = my_db.cursor()
 mycursor.execute("CREATE TABLE IF NOT EXISTS mytodos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255), status VARCHAR(255))")
