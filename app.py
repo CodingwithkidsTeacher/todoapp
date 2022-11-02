@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Production Database connection
 my_db = mysql.connector.connect(
-  host="focal-welder-364123:us-central1:todoappdb",
+  host="35.239.91.123",
   user="root",
   password="admin",
   database="todoapp_db"
