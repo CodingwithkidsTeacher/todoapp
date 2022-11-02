@@ -8,11 +8,10 @@ app = Flask(__name__)
 
 # Production Database connection
 my_db = mysql.connector.connect(
-  host="containers-us-west-73.railway.app",
+  host="focal-welder-364123:us-central1:todoappdb",
   user="root",
-  password="TwZIkrviFo7Jvajm1eIh",
-  database="railway",
-  port="6353"
+  password="admin",
+  database="todoapp_db"
 )
 mycursor = my_db.cursor()
 mycursor.execute("CREATE TABLE IF NOT EXISTS mytodos (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), dueDate VARCHAR(255), status VARCHAR(255))")
